@@ -40,6 +40,7 @@ public class GamePanel extends JPanel implements ActionListener {
         this.setBackground(new Color(213, 213, 213));
         this.setFocusable(true);
         this.addKeyListener(new MyKeyAdapter());
+        this.addMouseListener(new MyMouseAdapter());
         startGame();
     }
 
@@ -89,17 +90,18 @@ public class GamePanel extends JPanel implements ActionListener {
             // другое тело змеи
             for (int i = 0; i < bodyParts; i++) {
                 if (i == 0) {
-                    g.setColor(new Color(0, 255, 0)); // Зеленый цвет для головы
+                    g.setColor(new Color(0, 100, 10));
+                    // g.setColor(new Color(26,60,64)); // Зеленый цвет для головы
                 } else {
-                    // Используйте градиент для тела змеи
+                    //  градиент для тела змеи
                     int red = (45 + i * 5) % 256; // Интенсивность красного цвета увеличивается с каждым сегментом тела
-                    g.setColor(new Color(red, 180, 0));
+                    g.setColor(new Color(red, 100, 0));
                 }
                 g.fillRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE);
-                // Установите цвет обводки (например, черный)
-                g.setColor(Color.green);
+                //  цвет обводки 
+                g.setColor(new Color(0, 100, 10));
 
-                // Нарисуйте контур квадрата
+                //  контур квадрата
                 g.drawRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE);
             }
 
@@ -204,23 +206,33 @@ public class GamePanel extends JPanel implements ActionListener {
 
     public void gameOver(Graphics g) {
         // Score
-        g.setColor(new Color(215,35,35));
+        g.setColor(new Color(215, 35, 35));
         g.setFont(new Font("Pixelade", Font.BOLD, 40));
         FontMetrics metrics = getFontMetrics(g.getFont());
         g.drawString("Score: " + applesEaten, (SCREEN_WIDTH - metrics.stringWidth("Score: " + applesEaten)) / 2,
                 g.getFont().getSize());
         // Game Over text
-        g.setColor(new Color(215,35,35));
+        g.setColor(new Color(215, 35, 35));
         g.setFont(new Font("Pixelade", Font.BOLD, 75));
         FontMetrics metrics2 = getFontMetrics(g.getFont());
         g.drawString("Game Over", (SCREEN_WIDTH - metrics2.stringWidth("Game Over")) / 2, SCREEN_HEIGHT / 2);
 
         // Кнопка начала сначала
-        g.setColor(Color.blue);
+        g.setColor(new Color(45, 64, 89));
         g.setFont(new Font("Pixelade", Font.BOLD, 30));
         FontMetrics metrics3 = getFontMetrics(g.getFont());
-        g.drawString("Press Enter to Restart", (SCREEN_WIDTH - metrics3.stringWidth("Press Enter to Restart")) / 2,
+        g.drawString("Click to start over", (SCREEN_WIDTH - metrics3.stringWidth("Click to start over")) / 2,
                 SCREEN_HEIGHT / 2 + 100);
+    }
+
+    public void restartGame() {
+        x[0] = 0;
+        y[0] = 0;
+        bodyParts = 4;
+        applesEaten = 0;
+        runing = true;
+        direction = 'R';
+        startGame();
     }
 
     @Override
@@ -285,6 +297,17 @@ public class GamePanel extends JPanel implements ActionListener {
                         timer.start();
                     }
                     break;
+            }
+        }
+
+    }
+
+    public class MyMouseAdapter extends MouseAdapter {
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            if (!runing) {
+                runing = true;
+                restartGame();
             }
         }
 
