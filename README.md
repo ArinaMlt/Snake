@@ -1,18 +1,30 @@
-## Getting Started
+# Игра "Змейка" на Java
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Добро пожаловать в репозиторий игры "Змейка" на Java! Это простая и классическая игра, где вы управляете змеей, пытаясь собрать как можно больше яблок и при этом избегая столкновения с собственным хвостом или стенами.
 
-## Folder Structure
+## Особенности
 
-The workspace contains two folders by default, where:
+- Интерфейс командной строки: играйте прямо из терминала!
+- Классический геймплей змейки с увеличением длины после съедения яблок.
+- Уровни сложности и настраиваемые параметры для улучшенного игрового опыта.
+- Простой и понятный исходный код на Java, который легко понять и модифицировать.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Требования к окружению
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+- Java SDK установленный на вашем компьютере.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## Запуск игры
 
-## Dependency Management
+1. Клонируйте репозиторий на свой компьютер: `git clone https://github.com/ваш-аккаунт/репозиторий.git`
+2. Перейдите в каталог проекта: `cd репозиторий`
+3. Запустите игру: `java SnakeGame`
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## Вклад в проект
+
+Если у вас есть предложения по улучшению игры, новые идеи или вы нашли баги, не стесняйтесь создавать issue или делать pull request. Ваш вклад приветствуется!
+
+## Лицензия
+
+Этот проект распространяется под лицензией [MIT](LICENSE).
+
+Наслаждайтесь игрой!
