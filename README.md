@@ -20,7 +20,7 @@
 3. Запустите игру: `java SnakeGame`
 
 ## Скришоты интерфейса
-![Alt text](image/image.png)
+<img src="image/image.png" width="50%" height="50%">
 
 ## Вклад в проект
 
